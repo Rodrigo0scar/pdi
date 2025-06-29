@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "baaf9d36-80a9-4a63-9cec-ed72d2e30ba8",
+		"name": "PINFRA Collect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45875689",
+		"_collection_link": "https://rodrigooscar.postman.co/workspace/Rodrigo-Oscar's-Workspace~240f745e-c149-4a15-8208-476738742254/collection/45875689-baaf9d36-80a9-4a63-9cec-ed72d2e30ba8?action=share&source=collection_link&creator=45875689"
+	},
+	"item": [
+		{
+			"name": "LoginAdmin",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\":\"admin@asur.com\",\r\n    \"contrasenia\":\"admin1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"numeDocumento\": \"45554280\",\r\n  \"primNombre\": \"testCI\",\r\n  \"seguNombre\": \"test\",\r\n  \"primApellido\": \"test\",\r\n  \"seguApellido\": \"test\",\r\n  \"contrasenia\": \"MiClave123\",\r\n  \"correo\": \"testBadCI@asur.com\",\r\n  \"fechNacimiento\": \"1995-08-15\",\r\n  \"apartamento\": \"Apt 101\",\r\n  \"calle\": \"Av Rivera 1234\",\r\n  \"numePuerta\": 567,\r\n  \"idEstado\": 3,\r\n  \"idTipoDocumento\": 2,\r\n  \"idPerfil\": 2,\r\n  \"telefonos\": [\r\n    {\r\n      \"numTelefono\": \"099996666\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTE1MTQzLCJleHAiOjE3NDk5MzMxNDN9.eBJrSzFKngnkMSGgw6y7ujZnqYKxYZ7NWv3u_2L8zMM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numeDocumento\":\"test\",\r\n    \"primerNombre\":\"test\",\r\n    \"segundoNombre\":\"test\",\r\n    \"primerApellido\":\"test\",\r\n    \"segundoApellido\":\"test\",\r\n    \"contrasenia\":\"admin1234\",\r\n    \"correo\":\"admintest@asur.com\",\r\n    \"fechaNacimiento\":\"2001-07-21\",\r\n    \"apartamento\":\"A\",\r\n    \"calle\":\"proyectada\",\r\n    \"numePuerta\":123,\r\n    \"idEstado\":1,\r\n    \"idTipoDocumento\":1,\r\n    \"idPerfil\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/administradores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"administradores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearSocio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTE2MjgzLCJleHAiOjE3NDk5MzQyODN9.SK9hNrbZlH83mNjMuv2Q_zrvCJ3bRROdCZAUU0zOeko",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"numeDocumento\": \"12345678\",\r\n  \"primerNombre\": \"Juan\",\r\n  \"segundoNombre\": \"Carlos\",\r\n  \"primerApellido\": \"Pérez\",\r\n  \"seguApellido\": \"González\",\r\n  \"contrasenia\": \"password123\",\r\n  \"correo\": \"juan.perez@gmail.com\",\r\n  \"fechaNacimiento\": \"1990-05-15\",\r\n  \"apartamento\": \"Apto 101\",\r\n  \"calle\": \"Av. Principal\",\r\n  \"numePuerta\": 123,\r\n  \"idEstado\": 1,\r\n  \"idTipoDocumento\": 1,\r\n  \"idPerfil\": 3,\r\n  \"difAuditiva\": false,\r\n  \"usoLengSenias\": false,\r\n  \"pagaDesde\": 1,\r\n  \"pagaHasta\": 12,\r\n  \"idSubcomision\": 1,\r\n  \"idCategoria\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/socios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"socios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTE1MDk1LCJleHAiOjE3NDk5MzMwOTV9.zTKZsA9sUQwk67VNS0BNcr5nzVR7szvRP96W7gAMiUA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuario/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuario",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearPerfil",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTI3NjQxLCJleHAiOjE3NDk5NDU2NDF9.TlT_-_IaeQWch0xpQUxoKwfuVa0ceCL9Bx8__PuAbA8OwTIqQRGlWboJ9bJSi5oE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"test\",\r\n    \"descripcion\":\"for test\",\r\n    \"idEstado\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/perfiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"perfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPerfiles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTEzNzgwLCJleHAiOjE3NDk5MzE3ODB9.ITrFauJkIWlLfXOCPsoiJyErXHKRcOna7HLj6qhVqRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/perfiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"perfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarPerfil",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWludGVzdEBhc3VyLmNvbSIsImlhdCI6MTc0OTkyMjE0NywiZXhwIjoxNzQ5OTQwMTQ3fQ.j8wk7ZifK8Ve7XKfDj97a_XqmbWvH5GExp_U5Bktd1uUCB8tthou_c-NadSfsK6V",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"testtest\",\r\n    \"descripcion\":\"for test modifiedd\",\r\n    \"idEstado\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/perfiles/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"perfiles",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePerfil",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzQ5OTIyMDQxLCJleHAiOjE3NDk5NDAwNDF9.pSwEUaLq2Y6t52B7RwNQEw8UtDCQp6YuKqY4_cZXb5gj7whxFOnnq1STDqBeN5VZ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/perfiles/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"perfiles",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearTipoActividad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTE3NTEzLCJleHAiOjE3NTA1MzU1MTN9.2eewfcz9PhXlbmQtI0fSeg0wR7zphJsZUZTjzk4IuKmBOczmXlkFz4Sy1md9sXYu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\":\"Ejemplo\",\r\n    \"descripcion\":\"Actividades en el patio de ASUR\",\r\n    \"fechaBaja\":null,\r\n    \"razonBaja\":null,\r\n    \"comentariosBaja\":null,\r\n    \"idUsuarioBaja\":null,\r\n    \"idEstado\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tipos_actividad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tipos_actividad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActivarTipoActividad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTE3NTEzLCJleHAiOjE3NTA1MzU1MTN9.2eewfcz9PhXlbmQtI0fSeg0wR7zphJsZUZTjzk4IuKmBOczmXlkFz4Sy1md9sXYu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"testDos\",\r\n    \"descripcion\":\"for test\",\r\n    \"idEstado\":1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tipos_actividad/activar/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tipos_actividad",
+						"activar",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTiposActividades",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTE3NTEzLCJleHAiOjE3NTA1MzU1MTN9.2eewfcz9PhXlbmQtI0fSeg0wR7zphJsZUZTjzk4IuKmBOczmXlkFz4Sy1md9sXYu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tipos_actividad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tipos_actividad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModificarTipoActividad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwMjg0ODY1LCJleHAiOjE3NTAzMDI4NjV9.xT4zXIEHoAvK5qd2x3l-okNDpnWOL79PpIbHSPRn0JAYgV4XQ9_Y9iZuRo2bd8qx",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Recreativas\",\r\n    \"descripcion\": \"De recreacion sin compromiso\",\r\n    \"fechaBaja\": null,\r\n    \"razonBaja\": null,\r\n    \"comentariosBaja\": null,\r\n    \"idUsuarioBaja\": null,\r\n    \"idEstado\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tipos_actividad/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tipos_actividad",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarTipoActividad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTE3NTEzLCJleHAiOjE3NTA1MzU1MTN9.2eewfcz9PhXlbmQtI0fSeg0wR7zphJsZUZTjzk4IuKmBOczmXlkFz4Sy1md9sXYu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Recreativas\",\r\n    \"descripcion\": \"De recreacion\",\r\n    \"fechaBaja\": \"2025-06-18\",\r\n    \"razonBaja\": \"No se haran\",\r\n    \"comentariosBaja\": \"Se dejaran de hacer\",\r\n    \"idUsuarioBaja\": null,\r\n    \"idEstado\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tipos_actividad/eliminar/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tipos_actividad",
+						"eliminar",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearReserva",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTExODY4LCJleHAiOjE3NTA1Mjk4Njh9.vH6NiwgJ6VX8uWIzBUmVI4J-wJeUj46FK2MQhMcUCdCTcIFKrF2rdPLhbkkPLsoU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idEspacio\": 3,\r\n  \"fechHoraReserva\": \"2025-07-02T18:00:00\",\r\n  \"duracion\": 2,\r\n  \"cantPersonas\": 5,\r\n  \"idModoPago\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/reservas?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"reservas"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CancelarReserva",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTExODY4LCJleHAiOjE3NTA1Mjk4Njh9.vH6NiwgJ6VX8uWIzBUmVI4J-wJeUj46FK2MQhMcUCdCTcIFKrF2rdPLhbkkPLsoU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/reservas/cancelar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"reservas",
+						"cancelar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReportesReserva",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTE3NTEzLCJleHAiOjE3NTA1MzU1MTN9.2eewfcz9PhXlbmQtI0fSeg0wR7zphJsZUZTjzk4IuKmBOczmXlkFz4Sy1md9sXYu",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaDesde\":\"2025-06-01T14:00:00\",\r\n    \"fechaHasta\":\"2025-07-29T23:00:00\",\r\n    \"idEspacios\":[1,2,3]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/reservas/reportes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"reservas",
+						"reportes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearEspacio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTExNTY5LCJleHAiOjE3NTA1Mjk1Njl9.UH9DVFuZd7l7UKJkP6MZ6ECJyME8npJKSohOAMs9EyimUXjmD-l4Rpc5C6mpSFCd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Salon de eventos\",\r\n    \"capacidadMaxima\":50,\r\n    \"precioReservaSocio\":50.00,\r\n    \"precioReservaNoSocio\":10.00,\r\n    \"fechaVigenciaPrecio\":\"2025-12-01\",\r\n    \"observaciones\":\"observacion generica\",\r\n    \"idEstado\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/espacios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"espacios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActivarEspacio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNTExNTY5LCJleHAiOjE3NTA1Mjk1Njl9.UH9DVFuZd7l7UKJkP6MZ6ECJyME8npJKSohOAMs9EyimUXjmD-l4Rpc5C6mpSFCd",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/espacios/4/estado?activar=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"espacios",
+						"4",
+						"estado"
+					],
+					"query": [
+						{
+							"key": "activar",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator-health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNzgxODQ5LCJleHAiOjE3NTA3OTk4NDl9.MTqj86Ta6ETq4FYTp6Su89AOD6VjTxFu2q75J_v1A-rMj2STUkAfBIvxvamKh3tF",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Recreativas\",\r\n    \"descripcion\": \"De recreacion\",\r\n    \"fechaBaja\": \"2025-06-18\",\r\n    \"razonBaja\": \"No se haran\",\r\n    \"comentariosBaja\": \"Se dejaran de hacer\",\r\n    \"idUsuarioBaja\": null,\r\n    \"idEstado\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator-metrics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNzgxODQ5LCJleHAiOjE3NTA3OTk4NDl9.MTqj86Ta6ETq4FYTp6Su89AOD6VjTxFu2q75J_v1A-rMj2STUkAfBIvxvamKh3tF",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\": \"Recreativas\",\r\n    \"descripcion\": \"De recreacion\",\r\n    \"fechaBaja\": \"2025-06-18\",\r\n    \"razonBaja\": \"No se haran\",\r\n    \"comentariosBaja\": \"Se dejaran de hacer\",\r\n    \"idUsuarioBaja\": null,\r\n    \"idEstado\": null\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/actuator/metrics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator-info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNzgxODQ5LCJleHAiOjE3NTA3OTk4NDl9.MTqj86Ta6ETq4FYTp6Su89AOD6VjTxFu2q75J_v1A-rMj2STUkAfBIvxvamKh3tF",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator-loggers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6ImFkbWluQGFzdXIuY29tIiwiaWF0IjoxNzUwNzgxODQ5LCJleHAiOjE3NTA3OTk4NDl9.MTqj86Ta6ETq4FYTp6Su89AOD6VjTxFu2q75J_v1A-rMj2STUkAfBIvxvamKh3tF",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/loggers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"loggers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

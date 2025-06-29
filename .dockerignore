@@ -1,0 +1,39 @@
+# Archivos de Git
+.git
+.gitignore
+.gitattributes
+
+# Directorios de IDE
+.idea
+.vscode
+
+# Logs
+logs/
+*.log
+
+# Directorios de build
+target/
+build/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de configuración local
+application-local.properties
+application-local.yml
+
+# Documentación
+docs/
+README.md
+
+# Archivos de CI/CD
+.gitlab-ci.yml
+
+# Archivos de Docker (excepto Dockerfile y docker-compose.yml)
+Dockerfile.*
+docker-compose.*.yml
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db 
